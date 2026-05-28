@@ -1,0 +1,189 @@
+Design a **modern web application UI** for **"UYA Connect"**, including **members, activities, announcements, attendance, and reporting**, with multiple roles (Member, Admin, Coordinator) and responsive layouts for desktop and mobile.
+
+Create multiple screens in one Figma file, with consistent design system, reusable components, and visual clarity.
+
+---
+
+## GENERAL DESIGN REQUIREMENTS:
+
+* Modern, clean, professional UI
+* Primary colors: green and yellow
+* Card-based layout, rounded corners (8–12px), soft shadows
+* Consistent spacing (16–24px)
+* Typography: clean sans-serif (e.g., Inter)
+* Desktop-first responsive layout, also show mobile views
+* Mock data: use **TWICE members** for all tables, cards, and examples
+
+---
+
+## SCREENS & FEATURES
+
+### 1. Login Page
+
+* Centered login card, title: "UYA Connect"
+* Inputs: Email, Password
+* Login button (green), link: "Don't have an account? Register"
+* Subtle gradient background
+
+---
+
+### 2. Member Dashboard
+
+* Sidebar: Dashboard, Activities, Attendance, Announcements, Profile, Logout
+* Top navbar: User name + notifications
+* Summary cards: Total Activities, Joined Activities, Notifications, Attendance Rate
+* Sections: Recent Announcements, Upcoming Activities
+* Mobile responsive: collapsible sidebar, top navigation only
+
+---
+
+### 3. Activities Page
+
+* Grid/list of activity cards (title, date, location, description, "View Details")
+* Edit button on activity cards:
+
+  * Opens modal to edit activity details
+* Search/filter bar
+* Use TWICE members for participant mock data
+
+---
+
+### 4. Activity Details Page
+
+* Activity info: date, location, organizer, description
+* "Join Activity" button
+* Attendance self-marking section:
+
+  * Auto timestamp, optional proof upload (image)
+  * Status badges: Not Marked / Pending Validation / Approved / Rejected
+  * Validation rules: registration, time, duplicates
+* Member feedback messages
+* Mobile: modal-friendly layout for attendance marking
+
+---
+
+### 5. Announcements Page
+
+* **Card/list approach** instead of table (for Admin and Coordinator)
+* Each announcement card includes: title, date, short description, edit button
+* Edit button opens modal to update content
+* Add button: "Create Announcement"
+* Mobile: stacked cards with swipe-friendly layout
+
+---
+
+### 6. Profile Page
+
+* Profile picture (circular)
+* Info: Name, Email, Role/Course
+* Edit profile button
+* Mobile: condensed layout with collapsible info sections
+
+---
+
+### 7. Attendance Page (Member)
+
+* Table/list: All attendance records (full history)
+* Columns: Activity, Date, Status, Proof
+* Status badges: Eligible, Pending, Approved, Rejected
+* Mobile: scrollable or stacked card layout
+
+---
+
+### 8. Admin Dashboard
+
+* Sidebar: Dashboard, Manage Members, Manage Activities, Announcements, Attendance, Reports, Logout
+* Summary cards: Total Members, Total Activities, Active Announcements, Attendance Records
+* Recent activity logs (card layout)
+* Mobile: collapsible sidebar + responsive cards
+
+---
+
+### 9. Manage Members Page
+
+* Table layout: ID, Name, Email, Status, Actions
+* Edit button opens modal to update member info
+* Add Member button
+* Mobile: stacked cards for each member
+
+---
+
+### 10. Manage Activities Page
+
+* Table: Title, Date, Location, Actions
+* Edit button modal for updating
+* Add Activity button
+* Mobile: card layout
+
+---
+
+### 11. Attendance Management Page (Admin / Coordinator)
+
+* Dropdown to select activity
+* Card-style summary of attendance (Admin/Coordinator):
+
+  * Total participants
+  * Total Present / Absent
+  * Attendance Rate (%)
+* Table of member attendance: Name | Status | Timestamp | Proof | Action (Approve / Reject)
+* Validation rules: registration, session time, duplicates
+* Mobile: card layout with expandable details
+
+---
+
+### 12. Reports Page (Admin only)
+
+* Tabs: Attendance Report, Activities Report
+* Attendance Report:
+
+  * Filters: Activity, Date Range, Status
+  * Summary cards: Total Participants, Present, Absent, Attendance Rate (%)
+  * Charts: bar / pie charts
+  * Table: Member Name | Activity | Date | Attendance Status | Proof
+  * Export: PDF / CSV
+* Activities Report:
+
+  * Filters: Date Range, Activity Status
+  * Table or card layout showing activity stats
+* Coordinator role does NOT see Reports tab
+
+---
+
+### 13. Roles
+
+* **Member:** Can view/join activities, mark attendance, view own attendance history
+* **Admin:** Full access including Reports
+* **Coordinator:** Same as Admin but cannot see Reports tab
+
+---
+
+### 14. Responsive Design
+
+* Desktop: sidebar + top navigation
+* Mobile: collapsible sidebar, stacked cards, modals for editing
+* Ensure all tables/cards convert to mobile-friendly layouts
+
+---
+
+### 15. Mock Data
+
+* Use **TWICE members**: Nayeon, Jeongyeon, Momo, Sana, Jihyo, Mina, Dahyun, Chaeyoung, Tzuyu
+* Populate tables, cards, attendance records, activity participants
+
+---
+
+### 16. Edit Buttons Functionality
+
+* Activities, Members, Announcements: open modal to update record
+* Changes reflected immediately in UI
+* Mobile-friendly modals
+
+---
+
+### UX GOALS
+
+* Clear validation, editable content, proof upload
+* Consistent card-based layout, rounded corners, soft shadows
+* Status indicators for all actions
+* Responsive, mobile-first design
+* All screens demonstrate workflow and system logic clearly
