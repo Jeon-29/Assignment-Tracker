@@ -98,6 +98,27 @@
                             <input type="file" name="profile_picture" class="form-control rounded-3" accept="image/*">
                             <div class="form-text">Upload a JPG, PNG, or WEBP image up to 2MB.</div>
                         </div>
+
+                        <div class="col-12">
+                            <hr class="my-2">
+                            <h5 class="fw-semibold mb-1">Change Password</h5>
+                            <p class="text-muted small mb-0">Leave these fields blank if you do not want to change your password.</p>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <label class="form-label">Current Password</label>
+                            <input type="password" name="current_password" class="form-control rounded-3" autocomplete="current-password">
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <label class="form-label">New Password</label>
+                            <input type="password" name="new_password" class="form-control rounded-3" autocomplete="new-password">
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <label class="form-label">Confirm New Password</label>
+                            <input type="password" name="new_password_confirmation" class="form-control rounded-3" autocomplete="new-password">
+                        </div>
                     </div>
 
                     <div class="mt-4 d-flex justify-content-between align-items-center gap-3 flex-wrap">

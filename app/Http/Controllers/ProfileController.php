@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -52,6 +53,8 @@ class ProfileController extends Controller
             'gender' => 'nullable|in:Male,Female,Non-binary,Prefer not to say',
             'address' => 'nullable|string|max:255',
             'profile_picture' => 'nullable|image|max:2048',
+            'current_password' => 'nullable|required_with:new_password,new_password_confirmation|string',
+            'new_password' => 'nullable|string|min:8|confirmed',
         ]);
 
         $payload = [
@@ -61,6 +64,16 @@ class ProfileController extends Controller
             'gender' => $request->gender,
             'address' => $request->address,
         ];
+
+        if ($request->filled('new_password')) {
+            if (!Hash::check($request->current_password, $user->password)) {
+                return back()
+                    ->withInput()
+                    ->with('error', 'The current password is incorrect.');
+            }
+
+            $payload['password'] = Hash::make($request->new_password);
+        }
 
         if ($request->hasFile('profile_picture')) {
             $file = $request->file('profile_picture');
@@ -75,6 +88,8 @@ class ProfileController extends Controller
             'logged_in_name' => $user->name,
         ]);
 
-        return back()->with('success', 'Profile updated successfully.');
+        return back()->with('success', $request->filled('new_password')
+            ? 'Profile and password updated successfully.'
+            : 'Profile updated successfully.');
     }
 }
