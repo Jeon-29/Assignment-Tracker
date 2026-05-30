@@ -6,7 +6,7 @@
 
     <h4 class="text-center mb-4">Create Account</h4>
 
-    <form action="{{ url('/register') }}" method="POST">
+    <form action="/register" method="POST">
         @csrf
 
         <div class="form-floating mb-3">
@@ -28,7 +28,7 @@
 
         <p class="text-center mt-3">
             Already have an account?
-            <a class="link" href="{{ url('/login') }}">Login</a>
+            <a class="link" href="/login">Login</a>
         </p>
 
     </form>

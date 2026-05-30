@@ -6,7 +6,7 @@
 
     <h4 class="text-center mb-4">Login</h4>
 
-    <form action="{{ url('/login') }}" method="POST">
+    <form action="/login" method="POST">
         @csrf
 
         <div class="form-floating mb-3">
@@ -23,7 +23,7 @@
 
         <p class="text-center mt-3">
             Don't have an account?
-            <a class="link" href="{{ url('/register') }}">Register</a>
+            <a class="link" href="/register">Register</a>
         </p>
 
     </form>
