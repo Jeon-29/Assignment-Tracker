@@ -52,7 +52,7 @@ class ProfileController extends Controller
             'phone_number' => 'nullable|string|max:50',
             'gender' => 'nullable|in:Male,Female,Non-binary,Prefer not to say',
             'address' => 'nullable|string|max:255',
-            'profile_picture' => 'nullable|image|max:2048',
+            'profile_picture' => 'nullable|image|max:5048',
             'current_password' => 'nullable|required_with:new_password,new_password_confirmation|string',
             'new_password' => 'nullable|string|min:8|confirmed',
         ]);
