@@ -24,6 +24,10 @@ class AssignmentController extends Controller
     // 
     public function store(Request $request)
     {
+        if (!session()->has('logged_in_user')) {
+            return redirect('/login')->with('error', 'You must log in first.');
+        }
+
         if (session('logged_in_is_admin')) {
             return redirect('/admin/dashboard');
         }
@@ -43,8 +47,8 @@ class AssignmentController extends Controller
             'due_date' => $request->due_date,
         ]);
 
-        // rediret to dashboard
-        return back()->with('success', 'Assignment created');
+        // redirect to dashboard
+        return redirect('/dashboard')->with('success', 'Assignment created');
     }
 
     // retrieve all assignments for the logged-in user
@@ -111,8 +115,7 @@ class AssignmentController extends Controller
         $assignment->status = 'completed';
         $assignment->save();
 
-
-        return back()->with('success', 'Assignment marked as completed!');
+        return redirect('/dashboard')->with('success', 'Assignment marked as completed!');
     }
 
     // task details page
@@ -208,6 +211,10 @@ class AssignmentController extends Controller
 
     public function destroy($id)
     {
+        if (!session()->has('logged_in_user')) {
+            return redirect('/login')->with('error', 'You must log in first.');
+        }
+
         if (session('logged_in_is_admin')) {
             return redirect('/admin/dashboard');
         }
@@ -219,7 +226,7 @@ class AssignmentController extends Controller
         }
 
         $assignment->delete();
-        return back()->with('success', 'Assignment deleted successfully.');
+        return redirect('/tasks')->with('success', 'Assignment deleted successfully.');
     }
     public function update(Request $request, $id)
     {
@@ -240,7 +247,7 @@ class AssignmentController extends Controller
         $assignment = Assignment::where('id', $id)->where('user_id', session('logged_in_user'))->first();
 
         if (!$assignment) {
-            return back()->with('error', 'Assignment not found.');
+            return redirect('/tasks')->with('error', 'Assignment not found.');
         }
 
         $assignment->update([
@@ -249,6 +256,6 @@ class AssignmentController extends Controller
             'due_date' => $request->due_date,
         ]);
 
-        return back()->with('success', 'Assignment updated successfully.');
+        return redirect('/tasks')->with('success', 'Assignment updated successfully.');
     }
 }
